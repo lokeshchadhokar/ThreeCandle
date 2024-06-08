@@ -34,7 +34,7 @@ class DashBoard_locators(BasePage):
 
     def selectOneMinTime(self):
         self.wait_for_element(self.Listalltime_xpath)
-        print("Selecting 1 minute time interval...")
+        # print("Selecting 1 minute time interval...")
         # all_buttons = self.driver.wait(By.XPATH, "//button[@class='sc-kDkoGq hBvjqL']")
         all_buttons =self.wait_for_elements(self.Listalltime_xpath)
         for button in all_buttons:
