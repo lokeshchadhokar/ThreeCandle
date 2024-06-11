@@ -21,13 +21,18 @@ currency_pairss = ["GBP USD","EUR JPY","EUR USD"]#list of currency which one you
 cur_pair = currency_pairs(driver)
 ac = Action
 
-data = []
-USD_JPY=[]
+
+
 EUR_USD=[]
 EUR_JPY=[]
 GBP_USD=[]
+AUD_JPY=[]
+USD_CHF=[]
+USD_JPY=[]
+AUD_USD=[]
 EUR_AUD=[]
 CAD_CHF=[]
+data = [EUR_USD,EUR_JPY,GBP_USD,AUD_JPY,USD_CHF,USD_JPY,AUD_USD]
 while True:
 
     Time = datetime.datetime.now()
@@ -117,9 +122,9 @@ while True:
             if len(EUR_USD) > 10:
                 del USD_JPY[0],EUR_USD[0],EUR_JPY[0],GBP_USD[0],CAD_CHF[0],EUR_AUD[0]
             print(currency_pairss,"\n"
-            "EUR USD",EUR_USD[-1],"\n"
-                  "GBP USD",GBP_USD[-1],"\n"
-                  "EUR JPY",EUR_JPY[-1])
+                    "EUR USD",EUR_USD[-1],"\n"
+                    "GBP USD",GBP_USD[-1],"\n"
+                    "EUR JPY",EUR_JPY[-1])
         except Exception as e:
             print(e)
 
