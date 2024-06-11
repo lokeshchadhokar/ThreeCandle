@@ -8,7 +8,7 @@ class selectTimeIntervel:
         d = DashBoard_locators(driver)
         d.clickTimeIntervalButton()
         d.selectOneMinTime()
-        print("1-minute time selected")
+        print("1-minute candlestick ")
         # d.select1H_LargePeriod()
         d.select10minPeriod()
         d.clickTimeIntervalButton()

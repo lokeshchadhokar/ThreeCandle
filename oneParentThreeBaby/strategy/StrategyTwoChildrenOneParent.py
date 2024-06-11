@@ -20,11 +20,12 @@ class twoChildparent:
         if all([
                 candle_1['colour']== 'green',
                 candle_2['colour'] == 'green',
-                float(candle_2['Close']) <= high_1,
                 candle_3['colour'] == 'green',
+                float(candle_2['Close']) <= high_1,
                 float(candle_3['Close']) <= high_1
             ]):
-            print("for down".center(60, "#"))
+            print("Three conditon green Down".center(60, "#"))
+            print(f"candle_1 {candle_1}\ncandle_2 {candle_2}\ncandle 3{candle_3}")
             return True
         else :
             return True
@@ -41,7 +42,6 @@ class twoChildparent:
         candle_1 = candle_data[-3]
         candle_2 = candle_data[-2]
         candle_3 = candle_data[-1]
-        print(f"candle_1 {candle_1}\ncandle_2 {candle_2}\ncandle 3{candle_3}")
 
             # Get the high of the first candle
         Low_1 = float(candle_1['Low'])
@@ -50,11 +50,12 @@ class twoChildparent:
         if all([
                 candle_1['colour'] == 'Red',
                 candle_2['colour'] == 'Red',
-                float(candle_2['Close']) <= Low_1,
                 candle_3['colour'] == 'Red',
+                float(candle_2['Close']) <= Low_1,
                 float(candle_3['Close']) <= Low_1
             ]):
-            print("for UP".center(60, "^"))
+            print("Three conditon green  UP".center(60, "^"))
+            print(f"candle_1 {candle_1}\ncandle_2 {candle_2}\ncandle 3{candle_3}")
             return True
         else:
             return False
@@ -70,7 +71,7 @@ class twoChildparent:
         if all([candle_1['colour']=='green',candle_2['colour']=='green',float(candle_2['Close'])<= high]) or \
                 all([candle_1['colour'] == 'Red',candle_2['colour'] == 'Red',float(candle_2['Close']) >= low
         ]):
-            print("Two pass".center(60, "@"))
+            print("Two candle Pass".center(60, "@"))
             return True
         else:
             return False

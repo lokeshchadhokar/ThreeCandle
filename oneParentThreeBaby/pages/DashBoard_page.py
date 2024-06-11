@@ -42,6 +42,6 @@ class DashBoard_locators(BasePage):
         for button in all_buttons:
             # print(f"Found button with text: {button.text}")
             if button.text == '1 min':
-                print("Clicking on 1 min button...")
+                # print("Clicking on 1 min button...")
                 button.click()
                 break

@@ -4,19 +4,19 @@ from oneParentThreeBaby.function.japanis_candlestick import select_japanis_candl
 from oneParentThreeBaby.function.priceReading import Action
 from oneParentThreeBaby.function.Auto_select_currency import currency_pairs
 from oneParentThreeBaby.function.Intervel import selectTimeIntervel
-from oneParentThreeBaby.strategy.colourfinder import candlecolour
 import datetime
 from oneParentThreeBaby.strategy.dict_value_arranger import valueDistribute
 from time import sleep
 from oneParentThreeBaby.strategy.StrategyTwoChildrenOneParent import twoChildparent
 
-strategy = twoChildparent
-driver = login_procce.startLogin()
-driver = select_accunt_type.select_account(driver)
-driver = select_japanis_candle.select_candle_pattern(driver)
-driver = selectTimeIntervel.selectTime(driver)
 
-currency_pairss = ["AUD USD"]
+driver = login_procce.startLogin()#function/login.py
+driver = select_accunt_type.select_account(driver)#function/Account_Type.py.py
+driver = select_japanis_candle.select_candle_pattern(driver)#function/japanis_candlestick.py
+driver = selectTimeIntervel.selectTime(driver)
+strategy = twoChildparent
+
+currency_pairss = ["GBP USD","EUR JPY","EUR USD"]#list of currency which one you want to open
 
 cur_pair = currency_pairs(driver)
 ac = Action
@@ -33,7 +33,7 @@ while True:
     Time = datetime.datetime.now()
     if int(Time.strftime('%S')) == 1:
         sleep(0.15000)
-        print("START".center(60, "="))
+        print("START".center(60, "-"))
 
         #-------------------------------------------------------------
         # Find and print each currency pair
@@ -116,7 +116,10 @@ while True:
                 #     print("Value unpack")
             if len(EUR_USD) > 10:
                 del USD_JPY[0],EUR_USD[0],EUR_JPY[0],GBP_USD[0],CAD_CHF[0],EUR_AUD[0]
-            print(currency_pairss)
+            print(currency_pairss,"\n"
+            "EUR USD",EUR_USD[-1],"\n"
+                  "GBP USD",GBP_USD[-1],"\n"
+                  "EUR JPY",EUR_JPY[-1])
         except Exception as e:
             print(e)
 
