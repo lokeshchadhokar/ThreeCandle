@@ -4,14 +4,16 @@ from time import sleep
 class selectTimeIntervel:
     @staticmethod
     def selectTime(driver):
+        print("interval from function".center(60,"-"))
         d = DashBoard_locators(driver)
         d.clickTimeIntervalButton()
         d.selectOneMinTime()
         print("1-minute time selected")
         # d.select1H_LargePeriod()
-        d.select1H_SmallPeriod()
+        d.select10minPeriod()
         d.clickTimeIntervalButton()
         sleep(3)
         d.currency_selector()
         d.selectAsset()
+        print("interval End".center(60, "="))
         return driver

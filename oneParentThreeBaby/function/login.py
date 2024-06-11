@@ -6,6 +6,7 @@ from time import sleep
 class login_procce:
     @staticmethod
     def startLogin():
+        print("login from functon".center(60,"-"))
         driver = get_driver()
         driver.get('https://irontrade.com/')
         user = get_test_data()["username"]
@@ -15,6 +16,7 @@ class login_procce:
         login_page.enter_password(passw)
         sleep(40)
         login_page.click_login()
+        print("login End".center(60, "="))
         return driver
 
 # a=login_procce

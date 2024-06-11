@@ -13,7 +13,7 @@ class valueDistribute:
         }
         color = candlecolour.decide_colour(current_data)
         current_data = {
-            'Date': d.strftime("%d/%m%Y"),
+            'Date': d.strftime("%d/%m/%Y"),
             'Time': d.strftime("%H:%M:%S"),
             'colour': color,
             open_close[0].text: open_close[1].text,

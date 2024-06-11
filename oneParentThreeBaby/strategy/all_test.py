@@ -16,7 +16,7 @@ driver = select_accunt_type.select_account(driver)
 driver = select_japanis_candle.select_candle_pattern(driver)
 driver = selectTimeIntervel.selectTime(driver)
 
-currency_pairss = ["USD JPY", "EUR USD", "EUR JPY", "GBP USD","CAD CHF","USD CHF","EUR AUD"]
+currency_pairss = ["AUD USD"]
 
 cur_pair = currency_pairs(driver)
 ac = Action
@@ -29,15 +29,17 @@ GBP_USD=[]
 EUR_AUD=[]
 CAD_CHF=[]
 while True:
+
     Time = datetime.datetime.now()
     if int(Time.strftime('%S')) == 1:
         sleep(0.15000)
+        print("START".center(60, "="))
 
         #-------------------------------------------------------------
         # Find and print each currency pair
         try:
             for pair in currency_pairss:
-                try:
+                # try:
                     values,text = cur_pair.find_currency_pair(pair)
                     print(values[0].text,text)
                     cureent = valueDistribute.arrangeValues(values)
@@ -51,7 +53,7 @@ while True:
                             index = currency_pairss.index('USD JPY')
                             currency_pairss.insert(0, currency_pairss.pop(index))
                             print("Two Pass",currency_pairss)
-                        print(text,USD_JPY)
+                        print(text,strategy.last_two_candle(USD_JPY),USD_JPY)
 
                     elif text == 'EUR USD':
                         EUR_USD.append(cureent)
@@ -63,7 +65,7 @@ while True:
                             index = currency_pairss.index(text)
                             currency_pairss.insert(0, currency_pairss.pop(index))
                             print("Two Pass",currency_pairss)
-                        print(text,EUR_USD)
+                        print(text,strategy.last_two_candle(EUR_USD),EUR_USD[-1])
                     elif text == 'EUR JPY':
                         EUR_JPY.append(cureent)
                         if strategy.check_conditionforUP(EUR_JPY):
@@ -74,7 +76,7 @@ while True:
                             index = currency_pairss.index(text)
                             currency_pairss.insert(0, currency_pairss.pop(index))
                             print("Two Pass",currency_pairss)
-                        print(text,EUR_JPY)
+                        print(text,strategy.last_two_candle(EUR_USD),EUR_JPY)
                     elif text == 'GBP USD':
                         GBP_USD.append(cureent)
                         if strategy.check_conditionforUP(GBP_USD):
@@ -85,7 +87,7 @@ while True:
                             index = currency_pairss.index(text)
                             currency_pairss.insert(0, currency_pairss.pop(index))
                             print("Two Pass", currency_pairss)
-                        print(text,GBP_USD)
+                        print(text,strategy.last_two_candle(GBP_USD),GBP_USD[-1])
                     elif text == 'EUR AUD':
                         EUR_AUD.append(cureent)
                         if strategy.check_conditionforUP(EUR_AUD):
@@ -96,7 +98,7 @@ while True:
                             index = currency_pairss.index(text)
                             currency_pairss.insert(0, currency_pairss.pop(index))
                             print("Two Pass", currency_pairss)
-                        print(text,EUR_AUD)
+                        print(text,strategy.last_two_candle(EUR_AUD),EUR_AUD)
                     elif text == 'CAD CHF':
                         CAD_CHF.append(cureent)
                         if strategy.check_conditionforUP(CAD_CHF):
@@ -107,11 +109,11 @@ while True:
                             index = currency_pairss.index(text)
                             currency_pairss.insert(0, currency_pairss.pop(index))
                             print("Two Pass", currency_pairss)
-                        print(text,CAD_CHF)
+                        print(text,strategy.last_two_candle(CAD_CHF),CAD_CHF[-1])
                     else:
                         print(f"Storage not Created {text} ")
-                except Exception as e:
-                    print("Value unpack")
+                # except Exception as e:
+                #     print("Value unpack")
             if len(EUR_USD) > 10:
                 del USD_JPY[0],EUR_USD[0],EUR_JPY[0],GBP_USD[0],CAD_CHF[0],EUR_AUD[0]
             print(currency_pairss)

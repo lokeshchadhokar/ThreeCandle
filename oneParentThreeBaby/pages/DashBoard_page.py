@@ -6,6 +6,7 @@ class DashBoard_locators(BasePage):
     onehourLargePeriod_xpath = (By.XPATH, "//button[text()='1h']")
     onehourSmallPeriod_xpath = (By.XPATH, "//button[text()='1h'][2]")
     fiftyMinPeriod_xpath = (By.XPATH, "//button[text()='50min']")
+    TenMinPeriod =(By.XPATH, "//button[text()='10m']")
 
     buttontimeInterval_xpath = (By.XPATH, "//div[@class='sc-kRXbY hzjne']")
     Listalltime_xpath = (By.XPATH, "//button[@class='sc-kDkoGq hBvjqL']")
@@ -27,9 +28,10 @@ class DashBoard_locators(BasePage):
     def select1H_SmallPeriod(self):
         # print("Selecting 1-hour small period...")
         return self.wait_for_element(self.onehourSmallPeriod_xpath).click()
-
+    def select10minPeriod(self):
+        return self.wait_for_element(self.TenMinPeriod)
     def clickTimeIntervalButton(self):
-        print("Clicking on time interval button...")
+        # print("Clicking on time interval button...")
         return self.wait_for_element(self.buttontimeInterval_xpath).click()
 
     def selectOneMinTime(self):

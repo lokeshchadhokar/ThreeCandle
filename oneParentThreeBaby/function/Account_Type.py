@@ -5,6 +5,7 @@ from time import sleep
 class select_accunt_type:
     @staticmethod
     def select_account(driver):
+        print("Account Type from function".center(60,"-"))
         # driver = login_procce.startLogin()
         account_page  = accountType(driver)
         sleep(2)
@@ -23,7 +24,7 @@ class select_accunt_type:
                 print(f"{switch.text} Account selected")
                 sleep(5)
                 return driver
-
+        print("Account Type End".center(60, "="))
 # a= select_accunt_type()
 # # # lg = login_procce.startLogin(a)
 # a.select_account()
