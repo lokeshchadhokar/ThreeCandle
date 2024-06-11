@@ -35,7 +35,7 @@ class Action:
         base_page = BasePage(driver)
         d = datetime.datetime.now()
         H = d.strftime('%H')
-        m = int(d.strftime('%M'))
+        m = int(d.strftime('%M'))#-1
         price_values_xpath = (By.XPATH, '//div[@class="sc-eRjRog jVyewk"]/table/tbody/tr/td')
         time_str = f"{H}:{m:02d}"
         print(f"Searching for time element: {time_str}")
