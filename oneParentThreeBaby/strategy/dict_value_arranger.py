@@ -23,3 +23,27 @@ class valueDistribute:
             open_close[6].text: open_close[7].text
         }
         return current_data
+
+    @staticmethod
+    def arrangeValues_Three_time(open_close,ti):
+        d = datetime.datetime.now()
+        # print(ti)
+        current_data = {
+            open_close[0].text: open_close[1].text,
+            open_close[2].text: open_close[3].text,
+            open_close[4].text: open_close[5].text,
+            open_close[6].text: open_close[7].text
+        }
+        color = candlecolour.decide_colour(current_data)
+        M = int(d.strftime("%M")) - 1
+        current_data = {
+            'Date': d.strftime(f"%d/%m/%Y"),
+            'Time': ti, #d.strftime(f"%H:{M}:%S"),
+            'colour': color,
+            open_close[0].text: open_close[1].text,
+            open_close[2].text: open_close[3].text,
+            open_close[4].text: open_close[5].text,
+            open_close[6].text: open_close[7].text
+        }
+        return current_data
+

@@ -38,7 +38,7 @@ ac = Action
 while True:
     Time = datetime.datetime.now()
     if int(Time.strftime('%S')) == 1:
-        sleep(0.15000)
+        sleep(0.20000)
         print("START".center(60, "-"))
 
         try:
