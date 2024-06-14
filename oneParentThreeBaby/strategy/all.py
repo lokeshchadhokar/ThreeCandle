@@ -19,7 +19,7 @@ d= DashBoard_locators(driver)
 strategy = twoChildparent
 
 # List of currency pairs to monitor
-currency_pairss = ["EUR JPY","USD JPY","EUR USD","GBP USD"]
+currency_pairss = ["EUR JPY","USD JPY"]
 
 # Initialize currency pair data storage
 currency_data = {
@@ -75,9 +75,9 @@ while True:
                     currency_data[key] = currency_data[key][-10:]
 
             print(currency_pairss)
-            print("EUR USD", currency_data["EUR USD"][-1] if currency_data["EUR USD"] else "No Data")
-            # print("GBP USD", currency_data["GBP USD"][-1] if currency_data["GBP USD"] else "No Data")
-            print("EUR JPY", currency_data["EUR JPY"][-1] if currency_data["EUR JPY"] else "No Data")
+            # print("EUR USD", currency_data["EUR USD"][-1] if currency_data["EUR USD"] else "No Data")
+            # # print("GBP USD", currency_data["GBP USD"][-1] if currency_data["GBP USD"] else "No Data")
+            # print("EUR JPY", currency_data["EUR JPY"][-1] if currency_data["EUR JPY"] else "No Data")
 
         except Exception as e:
 
