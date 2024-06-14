@@ -86,9 +86,10 @@ class Action:
         candlee3 = base_page.wait_for_elements(price_values_xpath)
         candle3 = valueDistribute.arrangeValues_Three_time(candlee3,time_str3)
         # print(f"candle3 :{candle3}")
-        print("openClose compair",float(candle1["Open"])==float(candle2["Open"]) and float(candle1["Close"])==float(candle2["Close"]))
+        print("openClose compair c1,2",float(candle1["Open"])==float(candle2["Open"]) and float(candle1["Close"])==float(candle2["Close"]))
+        print("c2 c3",float(candle2["Open"])==float(candle3["Open"]) and float(candle2["Close"])==float(candle3["Close"]))
         # print("open", float(candle1["Open"]) ,float(candle2["Close"]))
-        if len(candle1) == 0 or float(candle1["Open"])==float(candle2["Open"]) and float(candle1["Close"])==float(candle2["Close"]):
+        if len(candle1) == 0 or float(candle1["Open"])==float(candle2["Open"]) and float(candle1["Close"])==float(candle2["Close"] or float(candle2["Open"])==float(candle3["Open"]) and float(candle2["Close"])==float(candle3["Close"])):
             print(f"Candle1 ={candle1} \n candle2 ={candle2}\n candle3 ={candle3}")
             print("1No price values found DUBLICATE, retrying...")
             candle1,candle2,candle3 = Action.actionchain_withtime_three_candle_data_at_time(driver,text)# Retry fetching the elements

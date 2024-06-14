@@ -19,7 +19,7 @@ d= DashBoard_locators(driver)
 strategy = twoChildparent
 
 # List of currency pairs to monitor
-currency_pairss = ["EUR JPY","USD JPY"]
+currency_pairss = ["EUR JPY","USD JPY","CHF JPY","EUR USD","GBP USD","AUD USD","AUD JPY","USD CHF"]
 
 # Initialize currency pair data storage
 currency_data = {
@@ -31,7 +31,8 @@ currency_data = {
     "USD CHF": [],
     "EUR AUD": [],
     "AUD JPY": [],
-    "AUD USD": []
+    "AUD USD": [],
+    "CHF JPY": []
 }
 
 cur_pair = currency_pairs(driver)
@@ -68,6 +69,8 @@ while True:
 
                         print(text)
                 except Exception as e:
+                    index = currency_pairss.index(pair)# agr kisi bhi currency pair main koi failhonga to us pair ko bahar nikalemga
+                    currency_pairss.insert(-1, currency_pairss.pop(index))# fail pair ko last indexing main insert karvaynga
                     print(f"inside for loop{pair}:{e}")
             # Keep only the last 10 records for each currency pair
             for key in currency_data:
@@ -75,7 +78,13 @@ while True:
                     currency_data[key] = currency_data[key][-10:]
 
             print(currency_pairss)
-            # print("EUR USD", currency_data["EUR USD"][-1] if currency_data["EUR USD"] else "No Data")
+            for i in currency_pairss:
+                # print(i, currency_data[i][-1] if currency_data[i] else "No Data")
+                print(i, f' Time  :{currency_data[i][-1]["Time"]},'
+                         f' Open  :{currency_data[i][-1]["Open"]},'
+                         f' High  :{currency_data[i][-1]["High"]},'
+                         f' Low   :{currency_data[i][-1]["Low"]} ,'
+                         f' Close :{currency_data[i][-1]["Close"]}'  if currency_data[i] else "No Data")
             # # print("GBP USD", currency_data["GBP USD"][-1] if currency_data["GBP USD"] else "No Data")
             # print("EUR JPY", currency_data["EUR JPY"][-1] if currency_data["EUR JPY"] else "No Data")
 
